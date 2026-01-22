@@ -40,6 +40,7 @@ export default function ProtectedRoute({
           return;
         }
       }
+    }
   }, [user, loading, requiredRole, router]);
 
   if (loading) {

@@ -347,6 +347,130 @@ function UptimeChart({ data }: any) {
   );
 }
 
+function DeploymentPipeline({ deployments }: { deployments?: any[] }) {
+  // Mock deployment data if not provided
+  const recentDeployments = deployments || [
+    { id: "1", commit: "c9a19a4", status: "success", stages: ["build", "test", "deploy", "verify"], timestamp: new Date(Date.now() - 1000 * 60 * 5) },
+    { id: "2", commit: "3b30fc4", status: "success", stages: ["build", "test", "deploy", "verify"], timestamp: new Date(Date.now() - 1000 * 60 * 15) },
+    { id: "3", commit: "6f836fe", status: "failed", stages: ["build", "test"], failedStage: "test", timestamp: new Date(Date.now() - 1000 * 60 * 30) },
+    { id: "4", commit: "144adda", status: "success", stages: ["build", "test", "deploy", "verify"], timestamp: new Date(Date.now() - 1000 * 60 * 60) },
+  ];
+
+  const stageLabels = {
+    build: "Build",
+    test: "Test",
+    deploy: "Deploy",
+    verify: "Verify",
+  };
+
+  const getStageStatus = (deployment: any, stage: string) => {
+    if (deployment.failedStage === stage) return "failed";
+    const stageIndex = deployment.stages.indexOf(stage);
+    const failedIndex = deployment.stages.indexOf(deployment.failedStage || "");
+    if (failedIndex !== -1 && stageIndex > failedIndex) return "pending";
+    if (deployment.status === "success" || stageIndex < deployment.stages.length) return "success";
+    return "pending";
+  };
+
+  const getStageColor = (status: string) => {
+    switch (status) {
+      case "success": return "bg-emerald-500";
+      case "failed": return "bg-red-500";
+      case "pending": return "bg-gray-300";
+      default: return "bg-gray-300";
+    }
+  };
+
+  const latest = recentDeployments[0];
+
+  return (
+    <Card className="rounded-2xl">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <GitBranch className="h-4 w-4" />
+          Deployment Pipeline
+        </CardTitle>
+        <CardDescription>Recent deployment status and pipeline visualization</CardDescription>
+      </CardHeader>
+      <CardContent className="p-5 space-y-4">
+        {/* Latest Deployment Pipeline */}
+        <div>
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-sm font-semibold">Latest: {latest.commit}</div>
+            <Badge className={cn(
+              "rounded-xl",
+              latest.status === "success" ? "bg-emerald-600 text-white" : "bg-red-600 text-white"
+            )}>
+              {latest.status === "success" ? "Success" : "Failed"}
+            </Badge>
+          </div>
+          
+          {/* Pipeline Visualization */}
+          <div className="flex items-center gap-2">
+            {["build", "test", "deploy", "verify"].map((stage, index) => {
+              const status = getStageStatus(latest, stage);
+              const isLast = index === 3;
+              
+              return (
+                <React.Fragment key={stage}>
+                  <div className="flex flex-col items-center">
+                    <div className={cn(
+                      "h-10 w-10 rounded-full flex items-center justify-center text-white text-xs font-semibold",
+                      getStageColor(status)
+                    )}>
+                      {status === "success" ? <CheckCircle2 className="h-5 w-5" /> :
+                       status === "failed" ? <AlertTriangle className="h-5 w-5" /> :
+                       <Clock className="h-5 w-5" />}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{stageLabels[stage as keyof typeof stageLabels]}</div>
+                  </div>
+                  {!isLast && (
+                    <div className={cn(
+                      "h-1 flex-1",
+                      status === "failed" ? "bg-red-500" : 
+                      status === "success" ? "bg-emerald-500" : "bg-gray-300"
+                    )} />
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </div>
+          
+          {latest.failedStage && (
+            <div className="mt-2 text-xs text-red-600">
+              Failed at: {stageLabels[latest.failedStage as keyof typeof stageLabels]}
+            </div>
+          )}
+        </div>
+
+        <Separator />
+
+        {/* Recent Deployments List */}
+        <div className="space-y-2">
+          <div className="text-xs font-semibold text-muted-foreground">Recent Deployments</div>
+          {recentDeployments.slice(0, 3).map((deploy) => (
+            <div key={deploy.id} className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                <div className={cn(
+                  "h-2 w-2 rounded-full",
+                  deploy.status === "success" ? "bg-emerald-500" : "bg-red-500"
+                )} />
+                <span className="font-mono text-xs">{deploy.commit}</span>
+                <span className="text-xs text-muted-foreground">
+                  {deploy.timestamp.toLocaleTimeString()}
+                </span>
+              </div>
+              <Badge variant="outline" className="text-xs">
+                {deploy.status}
+              </Badge>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 function SubmissionDetailDialog({
   open,
   onOpenChange,
@@ -782,7 +906,10 @@ export default function LLOpsControlCenter() {
                   <Stat title="Review queue" value={metrics?.review_queue ?? "—"} hint="Keep < 10" icon={Sparkles} />
                   <Stat title="Published" value={metrics?.published_total ?? "—"} hint="Evidence library" icon={BadgeCheck} />
                 </div>
-                <UptimeChart data={metrics?.sparkline || MOCK.metrics.sparkline} />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                  <UptimeChart data={metrics?.sparkline || MOCK.metrics.sparkline} />
+                  <DeploymentPipeline deployments={metrics?.deployments} />
+                </div>
               </TabsContent>
 
               <TabsContent value="submissions" className="mt-4 space-y-4">
