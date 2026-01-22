@@ -48,16 +48,29 @@ export async function getCurrentUser() {
   return user;
 }
 
+// Type definition for user profile
+export interface UserProfile {
+  role: 'admin' | 'reviewer' | 'user';
+  email: string | null;
+}
+
 // Helper for getting user profile with role
-export async function getUserProfile(userId: string) {
-  const { data, error } = await supabase
-    .from('profiles')
-    .select('role, email')
-    .eq('id', userId)
-    .single();
-  
-  if (error) throw error;
-  return data;
+export async function getUserProfile(userId: string): Promise<UserProfile | null> {
+  if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    return null;
+  }
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('role, email')
+      .eq('id', userId)
+      .single();
+    
+    if (error) throw error;
+    return data as UserProfile | null;
+  } catch {
+    return null;
+  }
 }
 
 // Helper for checking if user is admin
