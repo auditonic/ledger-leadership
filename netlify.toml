@@ -1,6 +1,16 @@
+# ============================================
+# STATIC HTML SITE CONFIGURATION
+# This is NOT a Next.js site - it's static HTML
+# ============================================
 [build]
   publish = "."
-  command = "echo 'Static site - no build needed'"
+  command = "echo 'Static HTML site - no build needed'"
+  
+# Explicitly prevent Next.js detection
+# (Plugin must also be disabled in Netlify dashboard)
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NEXT_TELEMETRY_DISABLED = "1"
 
 [[headers]]
   for = "/*"
