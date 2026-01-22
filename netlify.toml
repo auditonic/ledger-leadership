@@ -7,6 +7,12 @@
   publish = "."
   command = "echo 'Static HTML site - no build needed'"
   
+# CRITICAL: Explicitly disable Next.js plugin
+# Note: This may not work if plugin is auto-detected - UI override is required
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  enabled = false
+  
 # Explicitly prevent Next.js auto-detection
 # These environment variables tell Netlify to skip Next.js
 [build.environment]
