@@ -1,16 +1,21 @@
 # ============================================
 # STATIC HTML SITE CONFIGURATION
 # This is NOT a Next.js site - it's static HTML
+# Netlify auto-detects Next.js, so we must explicitly override
 # ============================================
 [build]
   publish = "."
   command = "echo 'Static HTML site - no build needed'"
   
-# Explicitly prevent Next.js detection
-# (Plugin must also be disabled in Netlify dashboard)
+# Explicitly prevent Next.js auto-detection
+# These environment variables tell Netlify to skip Next.js
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
   NEXT_TELEMETRY_DISABLED = "1"
+  
+# Force static site mode - prevent framework detection
+[build.processing]
+  skip_processing = false
 
 [[headers]]
   for = "/*"
