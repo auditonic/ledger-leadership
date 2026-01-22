@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Ledger Leadership</title>
+    <meta name="description" content="Get in touch. Questions, field notes, podcast inquiries, or just want to talk about the discipline.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .contact-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 550px) {
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        .contact-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .contact-card:hover {
+            box-shadow: 0 4px 12px rgba(58, 93, 71, 0.08);
+        }
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .contact-description {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: 1.25rem;
+        }
+        .contact-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            background: var(--color-background);
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .contact-link:hover {
+            background: var(--color-border);
+        }
+        .reasons-section {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .reasons-section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .reasons-list {
+            list-style: none;
+            margin: 0;
+        }
+        .reasons-list li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+        .reasons-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        .response-note {
+            background: var(--color-background);
+            border-left: 4px solid var(--color-secondary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 2rem;
+        }
+        .response-note p {
+            margin: 0;
+            color: var(--color-primary);
+            font-size: 0.95rem;
+        }
+        .response-note strong {
+            color: var(--color-primary);
+        }
+        .special-note {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .special-note p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .special-note a {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .special-note a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--color-text);
+            background: var(--color-background);
+            transition: all 0.2s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(58, 93, 71, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: var(--color-primary-light);
+        }
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .form-message {
+            font-size: 0.95rem;
+        }
+        .form-message.success {
+            background: #f0f8f5;
+            border-left: 4px solid var(--color-secondary);
+            color: var(--color-primary);
+        }
+        .form-message.error {
+            background: #fff5f5;
+            border-left: 4px solid #ef4444;
+            color: #dc2626;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">⚖</span>
+                <span class="logo-text">Ledger Leadership</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="edges.html">The Five Edges</a>
+                <a href="practice.html">Practice</a>
+                <a href="field-notes.html">Field Notes</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="for-podcasters.html">For Podcasters</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Get in Touch</h1>
+            <p class="page-subtitle">Questions, field notes, or just want to talk about the discipline.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="container-narrow">
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="contact-icon">💌</div>
+                    <div class="contact-title">Email</div>
+                    <div class="contact-description">
+                        Questions, thoughts, field notes, or just want to say hello.
+                    </div>
+                    <a href="mailto:connect@ledgerleadership.com" class="contact-link">connect@ledgerleadership.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📅</div>
+                    <div class="contact-title">Schedule a Call</div>
+                    <div class="contact-description">
+                        15 minutes to explore how this applies to your situation.
+                    </div>
+                    <a href="https://calendly.com/[your-calendly-link]" class="contact-link">Pick a Time</a>
+                </div>
+            </div>
+            
+            <div class="reasons-section">
+                <h2>What to reach out about:</h2>
+                <ul class="reasons-list">
+                    <li>You want to have this conversation on your podcast</li>
+                    <li>You've tested an edge and want to share what happened</li>
+                    <li>You're applying the discipline and hit something unexpected</li>
+                    <li>You have questions about how this works</li>
+                    <li>You want to challenge or build on the thinking</li>
+                    <li>You're interested in future training or certification</li>
+                </ul>
+            </div>
+            
+            <div class="response-note">
+                <p><strong>Response time:</strong> Emails get read and responded to within 24 hours on weekdays. If you've tested something and have a field note, that goes to the front of the queue.</p>
+            </div>
+            
+            <div class="special-note">
+                <p>If you've tested any of this and want to contribute a field note, you can also <a href="contribute.html">submit directly here</a>.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="form-container" style="margin-top: 2rem;">
+                <h2 style="color: var(--color-primary); margin-bottom: 1rem;">Send a Message</h2>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Name *</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="subject" placeholder="Optional subject">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" required rows="6" placeholder="Your message..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <div id="contactMessage" class="form-message" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-symbol">⚖</span>
+                        <span class="logo-text">Ledger Leadership</span>
+                    </div>
+                    <p>Balancing Reality, Accountable Delivery</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Framework</h4>
+                        <a href="index.html">Home</a>
+                        <a href="edges.html">The Five Edges</a>
+                        <a href="practice.html">Practice</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="margin-bottom: 0.5rem;">This discipline is meant to be tested, questioned, and improved.</p>
+                <p>&copy; 2025 Ledger Leadership. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            const messageDiv = document.getElementById('contactMessage');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+            messageDiv.style.display = 'none';
+
+            try {
+                const resp = await fetch('/.netlify/functions/contact-submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const payload = await resp.json().catch(() => ({}));
+
+                if (!resp.ok || !payload.ok) {
+                    const msg = (payload && (payload.error || payload.details)) ? (payload.error || payload.details) : 'Submission failed.';
+                    messageDiv.className = 'form-message error';
+                    messageDiv.textContent = 'Could not send message. ' + msg;
+                    messageDiv.style.display = 'block';
+                    return;
+                }
+
+                messageDiv.className = 'form-message success';
+                messageDiv.textContent = payload.message || 'Thank you! Your message has been sent. We\'ll get back to you soon.';
+                messageDiv.style.display = 'block';
+                form.reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (err) {
+                messageDiv.className = 'form-message error';
+                messageDiv.textContent = 'Could not send message. Please try again.';
+                messageDiv.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        }
+    </script>
+</body>
+</html>
