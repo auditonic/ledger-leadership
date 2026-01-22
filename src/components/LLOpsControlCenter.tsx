@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   Card,
   CardContent,
@@ -222,9 +223,25 @@ async function safeJson(resp: Response) {
   }
 }
 
+async function getAuthToken(): Promise<string | null> {
+  try {
+    const { supabase } = await import('@/lib/supabase');
+    const { data: { session } } = await supabase.auth.getSession();
+    return session?.access_token || null;
+  } catch {
+    return null;
+  }
+}
+
 async function apiGet(path: string, { fallback }: { fallback: any }) {
   try {
-    const resp = await fetch(path);
+    const token = await getAuthToken();
+    const headers: HeadersInit = {};
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    
+    const resp = await fetch(path, { headers });
     if (!resp.ok) throw new Error(await resp.text());
     const data = await safeJson(resp);
     return data ?? fallback;
@@ -235,9 +252,15 @@ async function apiGet(path: string, { fallback }: { fallback: any }) {
 
 async function apiPost(path: string, body: any, { fallback }: { fallback: any }) {
   try {
+    const token = await getAuthToken();
+    const headers: HeadersInit = { "Content-Type": "application/json" };
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+    
     const resp = await fetch(path, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers,
       body: JSON.stringify(body),
     });
     if (!resp.ok) throw new Error(await resp.text());
@@ -581,10 +604,7 @@ function GmailTab({ initial }: any) {
 
 export default function LLOpsControlCenter() {
   const now = useNow(30_000);
-
-  const [useAuthGate, setUseAuthGate] = useState(true);
-  const [authed, setAuthed] = useState(false);
-  const [authBusy, setAuthBusy] = useState(false);
+  const { user, signOut } = useAuth();
 
   const [health, setHealth] = useState<any>(MOCK.health);
   const [metrics, setMetrics] = useState<any>(MOCK.metrics);
@@ -647,68 +667,7 @@ export default function LLOpsControlCenter() {
     if (data?.submissions) setSubmissions(data.submissions);
   };
 
-  const authGate = (
-    <div className="min-h-[70vh] grid place-items-center">
-      <Card className="rounded-2xl w-full max-w-xl">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <KeyRound className="h-5 w-5" />
-            LLOps Access
-          </CardTitle>
-          <CardDescription>
-            This dashboard should be private. Option B: Supabase Auth + roles (admin/reviewer).
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="p-5 space-y-4">
-          <div className="flex items-center justify-between">
-            <div className="text-sm">
-              <div className="font-semibold">Auth gate</div>
-              <div className="text-xs text-muted-foreground">Disable only for local dev.</div>
-            </div>
-            <Switch checked={useAuthGate} onCheckedChange={setUseAuthGate} />
-          </div>
-
-          {useAuthGate ? (
-            <div className="space-y-3">
-              <div className="rounded-2xl bg-muted p-4 text-sm">
-                <div className="font-semibold">Recommended</div>
-                <ul className="mt-2 list-disc pl-5 text-xs text-muted-foreground space-y-1">
-                  <li>Use Supabase Auth (email magic link) for admin users.</li>
-                  <li>Netlify Functions validate session and enforce role (admin/reviewer).</li>
-                  <li>Keep service role key server-side only.</li>
-                </ul>
-              </div>
-              <Button
-                className="w-full rounded-2xl"
-                disabled={authBusy}
-                onClick={async () => {
-                  setAuthBusy(true);
-                  try {
-                    // Real wiring: call /.netlify/functions/llops-auth-session and validate JWT.
-                    setAuthed(true);
-                  } finally {
-                    setAuthBusy(false);
-                  }
-                }}
-              >
-                <Shield className="h-4 w-4 mr-2" />
-                Enter (stub)
-              </Button>
-              <div className="text-xs text-muted-foreground">
-                Wiring note: implement <code>llops-auth-session</code> to check Supabase Auth JWT and role.
-              </div>
-            </div>
-          ) : (
-            <Button className="w-full rounded-2xl" onClick={() => setAuthed(true)}>
-              Continue (no auth)
-            </Button>
-          )}
-        </CardContent>
-      </Card>
-    </div>
-  );
-
-  if (useAuthGate && !authed) return authGate;
+  // Auth is now handled by ProtectedRoute wrapper in page.tsx
 
   return (
     <div className="min-h-screen bg-background">
@@ -735,6 +694,16 @@ export default function LLOpsControlCenter() {
               <Clock className="h-3.5 w-3.5 mr-1" />
               {now.toLocaleTimeString()}
             </Badge>
+            {user && (
+              <div className="flex items-center gap-2">
+                <Badge variant="outline" className="rounded-xl">
+                  {user.email || user.id.slice(0, 8)}
+                </Badge>
+                <Button variant="ghost" size="sm" onClick={signOut}>
+                  Sign Out
+                </Button>
+              </div>
+            )}
           </div>
         </motion.div>
 
