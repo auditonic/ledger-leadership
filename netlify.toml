@@ -2,6 +2,11 @@
   publish = "."
   command = "echo 'Static site - no build needed'"
 
+# Explicitly disable Next.js plugin (even if enabled in Netlify dashboard)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+  enabled = false
+
 [[headers]]
   for = "/*"
   [headers.values]
