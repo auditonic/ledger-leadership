@@ -1,6 +1,11 @@
 [build]
   publish = "."
   command = "echo 'Static site - no build needed'"
+  
+# Explicitly disable Next.js plugin - this is a static HTML site
+# Netlify auto-detects Next.js from package.json, but we're deploying static HTML
+[build.processing]
+  skip_processing = false
 
 [[headers]]
   for = "/*"
