@@ -8,12 +8,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getCurrentUserWithProfile, signOut as authSignOut } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
+import type { UserProfile } from '@/lib/supabase';
 
-interface UserProfile {
-  role: 'admin' | 'reviewer' | 'user';
-  email: string;
-}
-
+// User type that matches what getCurrentUserWithProfile returns
 interface User {
   id: string;
   email?: string;

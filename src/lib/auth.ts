@@ -36,9 +36,17 @@ export async function getCurrentUserWithProfile() {
 
   try {
     const profile = await getUserProfile(user.id);
-    return { ...user, profile };
+    return { 
+      id: user.id,
+      email: user.email,
+      profile 
+    };
   } catch {
-    return { ...user, profile: null };
+    return { 
+      id: user.id,
+      email: user.email,
+      profile: null 
+    };
   }
 }
 
