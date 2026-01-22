@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/_next/static/css/242ec21570d0bef0.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-e08da262b32814b6.js"/><script src="/_next/static/chunks/fd9d1056-129d387e044f2cd0.js" async=""></script><script src="/_next/static/chunks/117-a12f13ac7dadc5ca.js" async=""></script><script src="/_next/static/chunks/main-app-f282e6788be9ddb0.js" async=""></script><script src="/_next/static/chunks/115-96b3e7c5ab771e5a.js" async=""></script><script src="/_next/static/chunks/app/layout-dcdf508117a51d0a.js" async=""></script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><title>Contact — Ledger Leadership</title><meta name="description" content="Get in touch. Questions, field notes, podcast inquiries, or just want to talk about the discipline."/><link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;⚖️&lt;/text&gt;&lt;/svg&gt;"/><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/><script src="/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-symbol">⚖</span>
+                <span class="logo-text">Ledger Leadership</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/edges">The Five Edges</a>
+                <a href="/practice">Practice</a>
+                <a href="/field-notes">Field Notes</a>
+                <a href="/contribute">Contribute</a>
+                <a href="/for-podcasters">For Podcasters</a>
+                <a href="/about">About</a>
+                <a href="/contact" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Get in Touch</h1>
+            <p class="page-subtitle">Questions, field notes, or just want to talk about the discipline.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="container-narrow">
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="contact-icon">💌</div>
+                    <div class="contact-title">Email</div>
+                    <div class="contact-description">
+                        Questions, thoughts, field notes, or just want to say hello.
+                    </div>
+                    <a href="mailto:connect@ledgerleadership.com" class="contact-link">connect@ledgerleadership.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📅</div>
+                    <div class="contact-title">Schedule a Call</div>
+                    <div class="contact-description">
+                        15 minutes to explore how this applies to your situation.
+                    </div>
+                    <a href="https://calendly.com/[your-calendly-link]" class="contact-link">Pick a Time</a>
+                </div>
+            </div>
+            
+            <div class="reasons-section">
+                <h2>What to reach out about:</h2>
+                <ul class="reasons-list">
+                    <li>You want to have this conversation on your podcast</li>
+                    <li>You've tested an edge and want to share what happened</li>
+                    <li>You're applying the discipline and hit something unexpected</li>
+                    <li>You have questions about how this works</li>
+                    <li>You want to challenge or build on the thinking</li>
+                    <li>You're interested in future training or certification</li>
+                </ul>
+            </div>
+            
+            <div class="response-note">
+                <p><strong>Response time:</strong> Emails get read and responded to within 24 hours on weekdays. If you've tested something and have a field note, that goes to the front of the queue.</p>
+            </div>
+            
+            <div class="special-note">
+                <p>If you've tested any of this and want to contribute a field note, you can also <a href="/contribute">submit directly here</a>.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="form-container" style="margin-top: 2rem;">
+                <h2 style="color: var(--color-primary); margin-bottom: 1rem;">Send a Message</h2>
+                <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Name *</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="subject" placeholder="Optional subject">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" required rows="6" placeholder="Your message..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <div id="contactMessage" class="form-message" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-symbol">⚖</span>
+                        <span class="logo-text">Ledger Leadership</span>
+                    </div>
+                    <p>Balancing Reality, Accountable Delivery</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Framework</h4>
+                        <a href="/">Home</a>
+                        <a href="/edges">The Five Edges</a>
+                        <a href="/practice">Practice</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="/about">About</a>
+                        <a href="/contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="margin-bottom: 0.5rem;">This discipline is meant to be tested, questioned, and improved.</p>
+                <p>&copy; 2025 Ledger Leadership. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function handleContactSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            const messageDiv = document.getElementById('contactMessage');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Sending...";
+            messageDiv.style.display = 'none';
+
+            try {
+                const resp = await fetch('/.netlify/functions/contact-submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const payload = await resp.json().catch(() => ({}));
+
+                if (!resp.ok || !payload.ok) {
+                    const msg = (payload && (payload.error || payload.details)) ? (payload.error || payload.details) : 'Submission failed.';
+                    messageDiv.className = 'form-message error';
+                    messageDiv.textContent = 'Could not send message. ' + msg;
+                    messageDiv.style.display = 'block';
+                    return;
+                }
+
+                messageDiv.className = 'form-message success';
+                messageDiv.textContent = payload.message || 'Thank you! Your message has been sent. We'll get back to you soon.';
+                messageDiv.style.display = 'block';
+                form.reset();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            } catch (err) {
+                messageDiv.className = 'form-message error';
+                messageDiv.textContent = 'Could not send message. Please try again.';
+                messageDiv.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        }
+    </script>
+</div><script src="/_next/static/chunks/webpack-e08da262b32814b6.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/242ec21570d0bef0.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[12846,[],\"\"]\n5:I[4707,[],\"\"]\n6:I[36423,[],\"\"]\n7:I[14362,[\"115\",\"static/chunks/115-96b3e7c5ab771e5a.js\",\"185\",\"static/chunks/app/layout-dcdf508117a51d0a.js\"],\"AuthProvider\"]\n9:I[61060,[],\"\"]\n4:T2123,"])</script><script>self.__next_f.push([1,"\n    \u003c!-- Navigation --\u003e\n    \u003cnav class=\"nav\"\u003e\n        \u003cdiv class=\"nav-container\"\u003e\n            \u003ca href=\"/\" class=\"logo\"\u003e\n                \u003cspan class=\"logo-symbol\"\u003e⚖\u003c/span\u003e\n                \u003cspan class=\"logo-text\"\u003eLedger Leadership\u003c/span\u003e\n            \u003c/a\u003e\n            \n            \u003cdiv class=\"nav-links\"\u003e\n                \u003ca href=\"/\"\u003eHome\u003c/a\u003e\n                \u003ca href=\"/edges\"\u003eThe Five Edges\u003c/a\u003e\n                \u003ca href=\"/practice\"\u003ePractice\u003c/a\u003e\n                \u003ca href=\"/field-notes\"\u003eField Notes\u003c/a\u003e\n                \u003ca href=\"/contribute\"\u003eContribute\u003c/a\u003e\n                \u003ca href=\"/for-podcasters\"\u003eFor Podcasters\u003c/a\u003e\n                \u003ca href=\"/about\"\u003eAbout\u003c/a\u003e\n                \u003ca href=\"/contact\" class=\"active\"\u003eContact\u003c/a\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n    \u003c/nav\u003e\n\n    \u003c!-- Page Header --\u003e\n    \u003csection class=\"page-header\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003ch1 class=\"page-title\"\u003eGet in Touch\u003c/h1\u003e\n            \u003cp class=\"page-subtitle\"\u003eQuestions, field notes, or just want to talk about the discipline.\u003c/p\u003e\n        \u003c/div\u003e\n    \u003c/section\u003e\n\n    \u003c!-- Main Content --\u003e\n    \u003csection class=\"about-content\"\u003e\n        \u003cdiv class=\"container-narrow\"\u003e\n            \u003cdiv class=\"contact-options\"\u003e\n                \u003cdiv class=\"contact-card\"\u003e\n                    \u003cdiv class=\"contact-icon\"\u003e💌\u003c/div\u003e\n                    \u003cdiv class=\"contact-title\"\u003eEmail\u003c/div\u003e\n                    \u003cdiv class=\"contact-description\"\u003e\n                        Questions, thoughts, field notes, or just want to say hello.\n                    \u003c/div\u003e\n                    \u003ca href=\"mailto:connect@ledgerleadership.com\" class=\"contact-link\"\u003econnect@ledgerleadership.com\u003c/a\u003e\n                \u003c/div\u003e\n                \n                \u003cdiv class=\"contact-card\"\u003e\n                    \u003cdiv class=\"contact-icon\"\u003e📅\u003c/div\u003e\n                    \u003cdiv class=\"contact-title\"\u003eSchedule a Call\u003c/div\u003e\n                    \u003cdiv class=\"contact-description\"\u003e\n                        15 minutes to explore how this applies to your situation.\n                    \u003c/div\u003e\n                    \u003ca href=\"https://calendly.com/[your-calendly-link]\" class=\"contact-link\"\u003ePick a Time\u003c/a\u003e\n                \u003c/div\u003e\n            \u003c/div\u003e\n            \n            \u003cdiv class=\"reasons-section\"\u003e\n                \u003ch2\u003eWhat to reach out about:\u003c/h2\u003e\n                \u003cul class=\"reasons-list\"\u003e\n                    \u003cli\u003eYou want to have this conversation on your podcast\u003c/li\u003e\n                    \u003cli\u003eYou've tested an edge and want to share what happened\u003c/li\u003e\n                    \u003cli\u003eYou're applying the discipline and hit something unexpected\u003c/li\u003e\n                    \u003cli\u003eYou have questions about how this works\u003c/li\u003e\n                    \u003cli\u003eYou want to challenge or build on the thinking\u003c/li\u003e\n                    \u003cli\u003eYou're interested in future training or certification\u003c/li\u003e\n                \u003c/ul\u003e\n            \u003c/div\u003e\n            \n            \u003cdiv class=\"response-note\"\u003e\n                \u003cp\u003e\u003cstrong\u003eResponse time:\u003c/strong\u003e Emails get read and responded to within 24 hours on weekdays. If you've tested something and have a field note, that goes to the front of the queue.\u003c/p\u003e\n            \u003c/div\u003e\n            \n            \u003cdiv class=\"special-note\"\u003e\n                \u003cp\u003eIf you've tested any of this and want to contribute a field note, you can also \u003ca href=\"/contribute\"\u003esubmit directly here\u003c/a\u003e.\u003c/p\u003e\n            \u003c/div\u003e\n\n            \u003c!-- Contact Form --\u003e\n            \u003cdiv class=\"form-container\" style=\"margin-top: 2rem;\"\u003e\n                \u003ch2 style=\"color: var(--color-primary); margin-bottom: 1rem;\"\u003eSend a Message\u003c/h2\u003e\n                \u003cform id=\"contactForm\" onsubmit=\"handleContactSubmit(event)\"\u003e\n                    \u003cdiv class=\"form-group\"\u003e\n                        \u003clabel for=\"contact-name\"\u003eName *\u003c/label\u003e\n                        \u003cinput type=\"text\" id=\"contact-name\" name=\"name\" required placeholder=\"Your name\"\u003e\n                    \u003c/div\u003e\n                    \n                    \u003cdiv class=\"form-group\"\u003e\n                        \u003clabel for=\"contact-email\"\u003eEmail *\u003c/label\u003e\n                        \u003cinput type=\"email\" id=\"contact-email\" name=\"email\" required placeholder=\"your@email.com\"\u003e\n                    \u003c/div\u003e\n                    \n                    \u003cdiv class=\"form-group\"\u003e\n                        \u003clabel for=\"contact-subject\"\u003eSubject\u003c/label\u003e\n                        \u003cinput type=\"text\" id=\"contact-subject\" name=\"subject\" placeholder=\"Optional subject\"\u003e\n                    \u003c/div\u003e\n                    \n                    \u003cdiv class=\"form-group\"\u003e\n                        \u003clabel for=\"contact-message\"\u003eMessage *\u003c/label\u003e\n                        \u003ctextarea id=\"contact-message\" name=\"message\" required rows=\"6\" placeholder=\"Your message...\"\u003e\u003c/textarea\u003e\n                    \u003c/div\u003e\n                    \n                    \u003cbutton type=\"submit\" class=\"submit-btn\"\u003eSend Message\u003c/button\u003e\n                    \n                    \u003cdiv id=\"contactMessage\" class=\"form-message\" style=\"display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;\"\u003e\u003c/div\u003e\n                \u003c/form\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n    \u003c/section\u003e\n\n    \u003c!-- Footer --\u003e\n    \u003cfooter class=\"footer\"\u003e\n        \u003cdiv class=\"container\"\u003e\n            \u003cdiv class=\"footer-content\"\u003e\n                \u003cdiv class=\"footer-brand\"\u003e\n                    \u003cdiv class=\"logo\"\u003e\n                        \u003cspan class=\"logo-symbol\"\u003e⚖\u003c/span\u003e\n                        \u003cspan class=\"logo-text\"\u003eLedger Leadership\u003c/span\u003e\n                    \u003c/div\u003e\n                    \u003cp\u003eBalancing Reality, Accountable Delivery\u003c/p\u003e\n                \u003c/div\u003e\n                \u003cdiv class=\"footer-links\"\u003e\n                    \u003cdiv class=\"footer-column\"\u003e\n                        \u003ch4\u003eFramework\u003c/h4\u003e\n                        \u003ca href=\"/\"\u003eHome\u003c/a\u003e\n                        \u003ca href=\"/edges\"\u003eThe Five Edges\u003c/a\u003e\n                        \u003ca href=\"/practice\"\u003ePractice\u003c/a\u003e\n                    \u003c/div\u003e\n                    \u003cdiv class=\"footer-column\"\u003e\n                        \u003ch4\u003eCompany\u003c/h4\u003e\n                        \u003ca href=\"/about\"\u003eAbout\u003c/a\u003e\n                        \u003ca href=\"/contact\"\u003eContact\u003c/a\u003e\n                    \u003c/div\u003e\n                \u003c/div\u003e\n            \u003c/div\u003e\n            \u003cdiv class=\"footer-bottom\"\u003e\n                \u003cp style=\"margin-bottom: 0.5rem;\"\u003eThis discipline is meant to be tested, questioned, and improved.\u003c/p\u003e\n                \u003cp\u003e\u0026copy; 2025 Ledger Leadership. All rights reserved.\u003c/p\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n    \u003c/footer\u003e\n\n    \u003cscript\u003e\n        async function handleContactSubmit(event) {\n            event.preventDefault();\n\n            const form = document.getElementById('contactForm');\n            const formData = new FormData(form);\n            const data = Object.fromEntries(formData);\n            const messageDiv = document.getElementById('contactMessage');\n            const submitBtn = form.querySelector('button[type=\"submit\"]');\n            const originalBtnText = submitBtn.textContent;\n\n            submitBtn.disabled = true;\n            submitBtn.textContent = \"Sending...\";\n            messageDiv.style.display = 'none';\n\n            try {\n                const resp = await fetch('/.netlify/functions/contact-submit', {\n                    method: 'POST',\n                    headers: { 'Content-Type': 'application/json' },\n                    body: JSON.stringify(data)\n                });\n\n                const payload = await resp.json().catch(() =\u003e ({}));\n\n                if (!resp.ok || !payload.ok) {\n                    const msg = (payload \u0026\u0026 (payload.error || payload.details)) ? (payload.error || payload.details) : 'Submission failed.';\n                    messageDiv.className = 'form-message error';\n                    messageDiv.textContent = 'Could not send message. ' + msg;\n                    messageDiv.style.display = 'block';\n                    return;\n                }\n\n                messageDiv.className = 'form-message success';\n                messageDiv.textContent = payload.message || 'Thank you! Your message has been sent. We'll get back to you soon.';\n                messageDiv.style.display = 'block';\n                form.reset();\n                window.scrollTo({ top: 0, behavior: 'smooth' });\n\n            } catch (err) {\n                messageDiv.className = 'form-message error';\n                messageDiv.textContent = 'Could not send message. Please try again.';\n                messageDiv.style.display = 'block';\n            } finally {\n                submitBtn.disabled = false;\n                submitBtn.textContent = originalBtnText;\n            }\n        }\n    \u003c/script\u003e\n"])</script><script>self.__next_f.push([1,"a:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"KZ_fcccHMlxiWgRwxx2g7\",\"assetPrefix\":\"\",\"urlParts\":[\"\",\"contact\",\"\"],\"initialTree\":[\"\",{\"children\":[\"contact\",{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"contact\",{\"children\":[\"__PAGE__\",{},[[\"$L3\",[\"$\",\"div\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"$4\"}}],null],null],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"contact\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/242ec21570d0bef0.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.googleapis.com\"}],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.gstatic.com\",\"crossOrigin\":\"anonymous\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400\u0026family=DM+Sans:wght@400;500;700\u0026display=swap\",\"rel\":\"stylesheet\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L7\",null,{\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L6\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[]}]}]}]]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$L8\"],\"globalErrorComponent\":\"$9\",\"missingSlots\":\"$Wa\"}]\n"])</script><script>self.__next_f.push([1,"8:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Contact — Ledger Leadership\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Get in touch. Questions, field notes, podcast inquiries, or just want to talk about the discipline.\"}],[\"$\",\"link\",\"4\",{\"rel\":\"icon\",\"href\":\"data:image/svg+xml,\u003csvg xmlns=\\\"http://www.w3.org/2000/svg\\\" viewBox=\\\"0 0 100 100\\\"\u003e\u003ctext y=\\\".9em\\\" font-size=\\\"90\\\"\u003e⚖️\u003c/text\u003e\u003c/svg\u003e\"}]]\n3:null\n"])</script></body></html>

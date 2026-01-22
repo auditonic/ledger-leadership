@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Podcasters — Ledger Leadership</title>
+    <meta name="description" content="Interview Ledger Leadership. A conversation about why every system keeps a ledger—and what happens when leaders stop pretending otherwise.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .section p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+        .talking-points {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        .talking-points li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--color-text);
+            border-bottom: 1px solid #f0f3f0;
+        }
+        .talking-points li:last-child {
+            border-bottom: none;
+        }
+        .talking-points li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        .format-box {
+            background: var(--color-background);
+            border-left: 4px solid var(--color-primary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .format-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+        .format-text {
+            color: var(--color-text);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .sidebar {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        .sidebar h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        .sidebar p {
+            color: rgba(255, 255, 255, 1);
+        }
+        .cta-button {
+            background: white;
+            color: var(--color-primary);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+        .cta-button:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+        .sidebar-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 1.5rem 0;
+            padding-top: 1.5rem;
+        }
+        .sidebar-links {
+            list-style: none;
+            margin: 0;
+        }
+        .sidebar-links li {
+            margin-bottom: 0.5rem;
+        }
+        .sidebar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .sidebar-links a:hover {
+            text-decoration: underline;
+        }
+        .download-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+        .quote-box {
+            background: white;
+            border: 2px solid var(--color-primary);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .quote-box p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-primary);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">⚖</span>
+                <span class="logo-text">Ledger Leadership</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="edges.html">The Five Edges</a>
+                <a href="practice.html">Practice</a>
+                <a href="field-notes.html">Field Notes</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="for-podcasters.html" class="active">For Podcasters</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Interview Ledger Leadership</h1>
+            <p class="page-subtitle">A conversation about what happens when leaders stop pretending the ledger balances.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="container-narrow">
+            <div class="main-content">
+                <div class="section">
+                    <h2>What This Conversation Is About</h2>
+                    <p>
+                        Every system keeps a ledger whether leaders acknowledge it or not. 
+                        Promises vs. outcomes. Authority vs. accountability. Confidence vs. evidence.
+                    </p>
+                    <p>
+                        Most leadership approaches work until they don't—collapsing under pressure 
+                        because they rely on trust without audit, alignment without evidence, values without enforcement.
+                    </p>
+                    <p>
+                        <strong>Ledger Leadership is different.</strong> It's an emerging discipline built for stress—because 
+                        pressure doesn't create problems, it reveals accounting errors.
+                    </p>
+                    
+                    <h2 style="margin-top: 2rem;">What We'd Explore</h2>
+                    <ul class="talking-points">
+                        <li>Why every system keeps a ledger—and what happens when leaders pretend otherwise</li>
+                        <li>The five edges that cut through organizational ambiguity</li>
+                        <li>Why most leadership models collapse under pressure (and what survives)</li>
+                        <li>The single question that reorients power in any meeting</li>
+                        <li>What this discipline refuses to do—and why that matters</li>
+                    </ul>
+                    
+                    <div class="format-box">
+                        <div class="format-label">Format</div>
+                        <p class="format-text">
+                            45-minute conversation. No prep required on your end—I'll walk through the thinking 
+                            and you ask whatever comes up. We'll make it relevant to your specific audience.
+                        </p>
+                    </div>
+                    
+                    <div class="format-box">
+                        <div class="format-label">Why Now</div>
+                        <p class="format-text">
+                            Every leadership model promises alignment. Few survive contact with pressure. 
+                            Organizations are leaner, faster, and more fragile than ever. Your listeners 
+                            need a discipline designed for reality, not aspirations.
+                        </p>
+                    </div>
+                    
+                    <h2 style="margin-top: 2rem;">Before We Talk</h2>
+                    <p>
+                        Want to get familiar first? The <a href="edges.html" class="download-link">Five Edges page</a> 
+                        explains the core mechanism (5 minutes to read).
+                    </p>
+                    <p>
+                        Or just book a time. We'll make it work regardless.
+                    </p>
+                </div>
+                
+                <div class="sidebar">
+                    <h2>Next Steps</h2>
+                    <p style="font-size: 0.95rem;">
+                        Pick a time that works. We'll handle the rest.
+                    </p>
+                    
+                    <a href="https://calendly.com/[your-calendly-link]" class="cta-button">Check Availability</a>
+                    
+                    <div class="sidebar-divider">
+                        <p style="font-size: 0.9rem;">
+                            <strong>Prefer email first?</strong><br/>
+                            No problem. Send a note to <strong>connect@ledgerleadership.com</strong> with your 
+                            podcast name and audience size.
+                        </p>
+                    </div>
+                    
+                    <div class="sidebar-divider">
+                        <p style="font-size: 0.85rem; margin-bottom: 0.75rem;"><strong>Quick Links</strong></p>
+                        <ul class="sidebar-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="edges.html">The Five Edges</a></li>
+                            <li><a href="practice.html">Practice</a></li>
+                            <li><a href="field-notes.html">Field Notes</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quote-box">
+                <p>"Leadership is not direction—it is the continuous reconciliation of reality, obligation, and consequence."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-symbol">⚖</span>
+                        <span class="logo-text">Ledger Leadership</span>
+                    </div>
+                    <p>Balancing Reality, Accountable Delivery</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Framework</h4>
+                        <a href="index.html">Home</a>
+                        <a href="edges.html">The Five Edges</a>
+                        <a href="practice.html">Practice</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="margin-bottom: 0.5rem;">Questions before scheduling? Reach out: connect@ledgerleadership.com</p>
+                <p>&copy; 2025 Ledger Leadership. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

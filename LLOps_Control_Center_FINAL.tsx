@@ -69,7 +69,6 @@ import {
   Mail,
   Shield,
   Sparkles,
-  TriangleAlert,
   Wrench,
 } from "lucide-react";
 import {
@@ -162,7 +161,7 @@ function statusPill(kind: string) {
   const map: Record<string, { label: string; icon: any; className: string }> = {
     ok: { label: "OK", icon: BadgeCheck, className: "bg-emerald-600 text-white" },
     warn: { label: "Attention", icon: AlertTriangle, className: "bg-amber-500 text-white" },
-    down: { label: "Down", icon: TriangleAlert, className: "bg-red-600 text-white" },
+    down: { label: "Down", icon: AlertTriangle, className: "bg-red-600 text-white" },
     unknown: { label: "Unknown", icon: Clock, className: "bg-muted text-foreground" },
   };
   return map[kind] || map.unknown;

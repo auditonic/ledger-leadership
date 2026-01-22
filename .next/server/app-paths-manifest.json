@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/contribute/page": "app/contribute/page.js",
+  "/about/page": "app/about/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/for-podcasters/page": "app/for-podcasters/page.js",
+  "/llops/page": "app/llops/page.js",
+  "/edges/page": "app/edges/page.js",
+  "/unauthorized/page": "app/unauthorized/page.js",
+  "/page": "app/page.js",
+  "/login/page": "app/login/page.js",
+  "/field-notes/page": "app/field-notes/page.js",
+  "/practice/page": "app/practice/page.js"
+}

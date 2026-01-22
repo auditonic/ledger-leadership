@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Five Edges — Ledger Leadership</title>
+    <meta name="description" content="Each edge cuts ambiguity in a specific direction. Reality, Obligation, Continuity, Margin, Reconciliation.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .edge-section {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .edge-section:hover {
+            box-shadow: 0 4px 20px rgba(58, 93, 71, 0.08);
+        }
+        .edge-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .edge-number {
+            background: var(--color-primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .edge-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .edge-question-main {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .edge-question-main p {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin: 0;
+            text-align: center;
+        }
+        .edge-clarification {
+            margin-bottom: 1.5rem;
+        }
+        .edge-clarification h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-secondary);
+            margin-bottom: 0.75rem;
+        }
+        .not-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .not-item {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            padding: 0.4rem 0.875rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+        }
+        .edge-power {
+            margin-bottom: 1.5rem;
+        }
+        .edge-power h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+        .power-list {
+            list-style: none;
+            margin: 0;
+        }
+        .power-list li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+        .power-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        .edge-diagnostic {
+            background: var(--color-background);
+            border-left: 4px solid var(--color-secondary);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.5rem;
+        }
+        .edge-diagnostic h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        .edge-diagnostic p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .edge-example {
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+        .edge-example h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+        .edge-example p {
+            color: var(--color-text);
+            font-size: 0.95rem;
+            font-style: italic;
+            margin: 0;
+        }
+        .intro-box {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        .intro-box p {
+            color: var(--color-text-light);
+            margin-bottom: 1rem;
+        }
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+        .synthesis-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .synthesis-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .synthesis-section p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 1);
+            margin-bottom: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .synthesis-section strong {
+            color: rgba(255, 255, 255, 1);
+            font-weight: 700;
+        }
+        .synthesis-section p:last-child {
+            margin-bottom: 0;
+        }
+        .relationships-box {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .relationships-box h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .relationships-box ul {
+            list-style: none;
+            margin: 0;
+        }
+        .relationships-box li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .relationships-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+        @media (max-width: 600px) {
+            .edge-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .not-list {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">⚖</span>
+                <span class="logo-text">Ledger Leadership</span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="edges.html" class="active">The Five Edges</a>
+                <a href="practice.html">Practice</a>
+                <a href="field-notes.html">Field Notes</a>
+                <a href="contribute.html">Contribute</a>
+                <a href="for-podcasters.html">For Podcasters</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">The Five Edges</h1>
+            <p class="page-subtitle">Each edge cuts ambiguity in a specific direction. They are tools, not concepts.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="about-content">
+        <div class="container-narrow">
+            <div class="intro-box">
+                <p>
+                    These edges are not sequential. Any conversation can enter through any edge. 
+                    <strong>Mastery is knowing which edge to apply when.</strong>
+                </p>
+                <p>
+                    If it didn't occur in the world, it doesn't exist in the ledger. 
+                    Each edge below forces that reckoning in a different dimension.
+                </p>
+            </div>
+            
+            <!-- Edge 1: Reality -->
+            <div class="edge-section">
+                <div class="edge-header">
+                    <div class="edge-number">1</div>
+                    <h2 class="edge-title">Reality Edge</h2>
+                </div>
+                
+                <div class="edge-question-main">
+                    <p>"What actually happened?"</p>
+                </div>
+                
+                <div class="edge-clarification">
+                    <h4>What this is NOT asking</h4>
+                    <div class="not-list">
+                        <span class="not-item">Not why it happened</span>
+                        <span class="not-item">Not who caused it</span>
+                        <span class="not-item">Not what we hoped</span>
+                        <span class="not-item">Not what we planned</span>
+                    </div>
+                </div>
+                
+                <div class="edge-power">
+                    <h4>This edge kills</h4>
+                    <ul class="power-list">
+                        <li>Performative alignment — where everyone nods but no one agrees</li>
+                        <li>Retrospective storytelling — rewriting history to match the narrative</li>
+                        <li>Status-based truth — where the highest-paid person's version wins</li>
+                    </ul>
+                </div>
+                
+                <div class="edge-diagnostic">
+                    <h4>How you know it's dull</h4>
+                    <p>Different people in the same meeting leave with different understandings of what was decided. Reports describe what should have happened, not what did.</p>
+                </div>
+                
+                <div class="edge-example">
+                    <h4>Example moment</h4>
+                    <p>"Before we discuss solutions—what specifically occurred? Not interpretations. Events."</p>
+                </div>
+            </div>
+            
+            <!-- Edge 2: Obligation -->
+            <div class="edge-section">
+                <div class="edge-header">
+                    <div class="edge-number">2</div>
+                    <h2 class="edge-title">Obligation Edge</h2>
+                </div>
+                
+                <div class="edge-question-main">
+                    <p>"Who carries the consequence when this fails?"</p>
+                </div>
+                
+                <div class="edge-clarification">
+                    <h4>What this is NOT asking</h4>
+                    <div class="not-list">
+                        <span class="not-item">Not ownership charts</span>
+                        <span class="not-item">Not job titles</span>
+                        <span class="not-item">Not who's "responsible"</span>
+                        <span class="not-item">Not org chart lines</span>
+                    </div>
+                </div>
+                
+                <div class="edge-power">
+                    <h4>This edge exposes</h4>
+                    <ul class="power-list">
+                        <li>Orphaned decisions — choices that belong to no one</li>
+                        <li>Soft authority — people with titles but no real power</li>
+                        <li>Responsibility diffusion — "everyone owns it" means no one does</li>
+                    </ul>
+                </div>
+                
+                <div class="edge-diagnostic">
+                    <h4>How you know it's dull</h4>
+                    <p>When something fails, there's a scramble to figure out who should have caught it. Accountability conversations happen after the fact, not before.</p>
+                </div>
+                
+                <div class="edge-example">
+                    <h4>Example moment</h4>
+                    <p>"If this doesn't work, whose problem does it become? Name the person, not the team."</p>
+                </div>
+            </div>
+            
+            <!-- Edge 3: Continuity -->
+            <div class="edge-section">
+                <div class="edge-header">
+                    <div class="edge-number">3</div>
+                    <h2 class="edge-title">Continuity Edge</h2>
+                </div>
+                
+                <div class="edge-question-main">
+                    <p>"What must persist for this to keep working tomorrow?"</p>
+                </div>
+                
+                <div class="edge-clarification">
+                    <h4>What this is NOT asking</h4>
+                    <div class="not-list">
+                        <span class="not-item">Not success today</span>
+                        <span class="not-item">Not heroics</span>
+                        <span class="not-item">Not one-time effort</span>
+                        <span class="not-item">Not "we'll figure it out"</span>
+                    </div>
+                </div>
+                
+                <div class="edge-power">
+                    <h4>This edge cuts through</h4>
+                    <ul class="power-list">
+                        <li>Burnout cultures — where success depends on unsustainable effort</li>
+                        <li>Fragile excellence — outcomes that collapse when one person leaves</li>
+                        <li>"We'll figure it out later" thinking — deferred system design</li>
+                    </ul>
+                </div>
+                
+                <div class="edge-diagnostic">
+                    <h4>How you know it's dull</h4>
+                    <p>The same crisis recurs every quarter. Success stories can't be repeated by different people. Vacation and sick days create emergencies.</p>
+                </div>
+                
+                <div class="edge-example">
+                    <h4>Example moment</h4>
+                    <p>"If the person who built this left tomorrow, what breaks? What's not written down?"</p>
+                </div>
+            </div>
+            
+            <!-- Edge 4: Margin -->
+            <div class="edge-section">
+                <div class="edge-header">
+                    <div class="edge-number">4</div>
+                    <h2 class="edge-title">Margin Edge</h2>
+                </div>
+                
+                <div class="edge-question-main">
+                    <p>"How close are we to failure right now?"</p>
+                </div>
+                
+                <div class="edge-clarification">
+                    <h4>What this is NOT asking</h4>
+                    <div class="not-list">
+                        <span class="not-item">Not optimism</span>
+                        <span class="not-item">Not confidence</span>
+                        <span class="not-item">Not what we hope</span>
+                        <span class="not-item">Not best-case scenario</span>
+                    </div>
+                </div>
+                
+                <div class="edge-power">
+                    <h4>This edge destroys</h4>
+                    <ul class="power-list">
+                        <li>False resilience — "we've always made it work" without examining how close it was</li>
+                        <li>Overcommitment — saying yes without understanding the buffer consumed</li>
+                        <li>Silent risk stacking — small risks accumulating unnoticed</li>
+                    </ul>
+                </div>
+                
+                <div class="edge-diagnostic">
+                    <h4>How you know it's dull</h4>
+                    <p>"Surprises" happen regularly. Small delays cascade into major problems. There's no slack in the system—everything runs at capacity.</p>
+                </div>
+                
+                <div class="edge-example">
+                    <h4>Example moment</h4>
+                    <p>"What's our buffer if one thing goes wrong? Not two things—one. Do we have any margin?"</p>
+                </div>
+            </div>
+            
+            <!-- Edge 5: Reconciliation -->
+            <div class="edge-section">
+                <div class="edge-header">
+                    <div class="edge-number">5</div>
+                    <h2 class="edge-title">Reconciliation Edge</h2>
+                </div>
+                
+                <div class="edge-question-main">
+                    <p>"What are we pretending balances that doesn't?"</p>
+                </div>
+                
+                <div class="edge-clarification">
+                    <h4>What this is asking</h4>
+                    <div class="not-list">
+                        <span class="not-item">The unspoken gaps</span>
+                        <span class="not-item">The agreed-upon fictions</span>
+                        <span class="not-item">The residue from decisions</span>
+                        <span class="not-item">The debt from meetings</span>
+                    </div>
+                </div>
+                
+                <div class="edge-power">
+                    <h4>This edge forces</h4>
+                    <ul class="power-list">
+                        <li>Naming the gap — saying out loud what everyone suspects</li>
+                        <li>Cooling organizational fever — slowing down when motion has become a substitute for progress</li>
+                        <li>Truth before motion — requiring clarity before action</li>
+                    </ul>
+                </div>
+                
+                <div class="edge-diagnostic">
+                    <h4>How you know it's dull</h4>
+                    <p>Everyone knows there's a problem, but it's never on the agenda. Meetings end with vague next steps that no one follows up on. The same issues resurface in different language.</p>
+                </div>
+                
+                <div class="edge-example">
+                    <h4>Example moment</h4>
+                    <p>"What's the thing we're not saying in this room? The gap everyone sees but no one names?"</p>
+                </div>
+            </div>
+            
+            <!-- Synthesis -->
+            <div class="synthesis-section">
+                <h2>When All Five Edges Are Sharp</h2>
+                <p>Debate collapses. Politics starve. Clarity accelerates.</p>
+                <p>No one has to win. <strong>Reality already has.</strong></p>
+            </div>
+            
+            <!-- Relationships -->
+            <div class="relationships-box">
+                <h3>How the Edges Relate</h3>
+                <ul>
+                    <li>They're not sequential—any conversation can enter through any edge</li>
+                    <li>One dull edge often masks another (unclear reality hides unclear obligation)</li>
+                    <li>Sharpening one edge often reveals where others have dulled</li>
+                    <li>In crisis, start with Reality. In planning, start with Continuity. In conflict, start with Reconciliation.</li>
+                </ul>
+            </div>
+            
+            <!-- CTA -->
+            <div class="cta-section">
+                <p style="color: var(--color-text-light); margin-bottom: 1.5rem;">Ready to apply these? The Practice page shows exactly how to use each edge in real moments.</p>
+                <div class="cta-buttons">
+                    <a href="practice.html" class="btn btn-primary">See the Practice</a>
+                    <a href="field-notes.html" class="btn btn-secondary">Read Field Notes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-symbol">⚖</span>
+                        <span class="logo-text">Ledger Leadership</span>
+                    </div>
+                    <p>Balancing Reality, Accountable Delivery</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Framework</h4>
+                        <a href="index.html">Home</a>
+                        <a href="edges.html">The Five Edges</a>
+                        <a href="practice.html">Practice</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ledger Leadership. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
