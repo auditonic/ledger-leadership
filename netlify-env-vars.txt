@@ -1,0 +1,20 @@
+# Netlify Environment Variables
+# Copy these into Netlify Dashboard → Site settings → Environment variables
+
+# Required Variables:
+
+SUPABASE_URL=https://homsaurlketpzzjtsyxn.supabase.co
+
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhvbXNhdXJsa2V0cHp6anRzeXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkwNTAzNTQsImV4cCI6MjA4NDYyNjM1NH0.FkkQZIFwR45I2Tz3XcbaChyxCxtnitlwnGwcNRazDI4
+
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhvbXNhdXJsa2V0cHp6anRzeXhuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2OTA1MDM1NCwiZXhwIjoyMDg0NjI2MzU0fQ.7s5Jlm3Nirb2CHSyHwukVhRVMrnejpL9Qvmdt6rOupo
+
+LLOPS_AUTH_DISABLED=false
+
+# Optional Variables (add later if needed):
+
+# GITHUB_TOKEN=your-github-token
+# GITHUB_REPO=auditonic/ledger-leadership
+# GMAIL_CLIENT_ID=your-gmail-client-id
+# GMAIL_CLIENT_SECRET=your-gmail-client-secret
+# GMAIL_REFRESH_TOKEN=your-gmail-refresh-token
