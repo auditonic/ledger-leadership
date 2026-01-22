@@ -54,7 +54,6 @@ import {
   Mail,
   Shield,
   Sparkles,
-  AlertTriangle,
   Wrench,
 } from "lucide-react";
 import {
