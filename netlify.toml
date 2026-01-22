@@ -1,12 +1,10 @@
 # ============================================
-# NEXT.JS STATIC EXPORT CONFIGURATION
-# Next.js with static export - generates static HTML
+# PURE STATIC HTML SITE CONFIGURATION
+# Simple static site - no build needed
 # ============================================
 [build]
-  command = "npm install && npm run build"
-  publish = "out"
-  
-# Next.js plugin will auto-detect and configure correctly
+  publish = "."
+  command = "echo 'Static HTML site - no build needed'"
 
 [[headers]]
   for = "/*"
