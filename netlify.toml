@@ -1,11 +1,6 @@
 [build]
   publish = "."
   command = "echo 'Static site - no build needed'"
-  
-# Explicitly disable Next.js plugin - this is a static HTML site
-# Netlify auto-detects Next.js from package.json, but we're deploying static HTML
-[build.processing]
-  skip_processing = false
 
 [[headers]]
   for = "/*"
@@ -16,9 +11,6 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co;"
-
-[build.processing]
-  skip_processing = false
 
 [build.processing.html]
   pretty_urls = true
