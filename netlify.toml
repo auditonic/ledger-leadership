@@ -4,7 +4,7 @@
 # ============================================
 [build]
   command = "npm install && npm run build"
-  publish = ".next"
+  publish = "out"
   
 # Next.js plugin will auto-detect and configure correctly
 
