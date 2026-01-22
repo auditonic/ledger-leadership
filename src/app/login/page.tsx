@@ -3,6 +3,7 @@
 /**
  * Login Page
  * Email/password authentication
+ * Client component - no build-time rendering needed
  */
 
 import { useState, useEffect } from 'react';

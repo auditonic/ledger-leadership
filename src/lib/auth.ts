@@ -3,7 +3,35 @@
  * Server-side and client-side auth helpers
  */
 
-import { supabase, getUserProfile, isAdmin } from './supabase';
+import { supabase } from './supabase';
+
+// Safe wrapper functions that handle missing Supabase config
+async function getUserProfile(userId: string) {
+  if (!supabase || !process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    return null;
+  }
+  try {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('role, email')
+      .eq('id', userId)
+      .single();
+    
+    if (error) throw error;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+async function isAdmin(userId: string): Promise<boolean> {
+  try {
+    const profile = await getUserProfile(userId);
+    return profile?.role === 'admin';
+  } catch {
+    return false;
+  }
+}
 
 // Client-side: Get current session
 export async function getSession() {
